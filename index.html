@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,164 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <!-- STRUCTURE FOR THE HEADER -->
+    <header>
+      <h1>Book Management App</h1>
+    </header>
+    <!-- MAIN STRUCTURE -->
+    <main>
+      <div class="collection">
+        <div class="tools-container">
+          <div class="filter-books">
+            <button class="filter-books__button filter-books__button--all">
+              All
+            </button>
+            <button class="filter-books__button filter-books__button--printed">
+              Printed Books
+            </button>
+            <button class="filter-books__button filter-books__button--audio">
+              Audio Books
+            </button>
+          </div>
+          <div class="add-books">
+            <button class="add-book__button">Add</button>
+          </div>
+        </div>
+        <div class="books">
+          <ul class="books__list">
+            Currently no registered books
+          </ul>
+        </div>
+      </div>
+    </main>
+    <!-- STRUCTURE FOR FORM MODAL -->
+    <div class="form-modal">
+      <form class="form">
+        <div class="form__group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Enter Book-Title. E.g Javascript: The Definitive Guide"
+            maxlength="100"
+            class="form__title-input"
+          />
+        </div>
+        <div class="form__group">
+          <label for="author">Author</label>
+          <input
+            type="text"
+            name="authot"
+            id="author"
+            placeholder="Enter Author Name. E.g David Flanagan"
+            maxlength="100"
+            class="form__author-input"
+          />
+        </div>
+        <div class="form__group">
+          <label for="publisher">Publisher</label>
+          <input
+            type="text"
+            name="publisher"
+            id="publisher"
+            placeholder="Enter Publisher Name. E.g O'Reilly Media"
+            maxlength="100"
+            class="form__publisher-input"
+          />
+        </div>
+        <div class="form__group">
+          <label for="publication-date">Publication Date</label>
+          <input
+            type="date"
+            name="publication-date"
+            id="publication-date"
+            placeholder="Enter Publication date"
+            maxlength="100"
+            class="form__publication-date-input"
+          />
+        </div>
+        <div class="form__group">
+          <label for="book-type">Book Type</label>
+          <select name="book-type" id="book-type" class="form__book-type">
+            <option value="">Select Book Type</option>
+            <option value="printed-book">Printed Book</option>
+            <option value="audiobook">Audio book</option>
+          </select>
+        </div>
+        <!-- FORM ELEMENTS FOR PRINTED BOOKS INPUTS-->
+        <div class="form__printed-book">
+          <fieldset>
+            <legend>Printed Books Details</legend>
+            <div class="form__group">
+              <label for="pages">Number of Pages</label>
+              <input
+                type="number"
+                name="pages"
+                id="pages"
+                placeholder="Enter number of pages. E.g 675"
+                maxlength="4"
+                min="1"
+                class="form__pages-input"
+              />
+            </div>
+            <div>
+              <label for="print-type">Print Type</label>
+              <select
+                name="print-type"
+                id="print-type"
+                class="form__print-type"
+              >
+                <option value="">Select Print Type</option>
+                <option value="color">Color</option>
+                <option value="black-white">Black and White</option>
+              </select>
+            </div>
+          </fieldset>
+        </div>
+        <!-- FORM ELEMENTS FOR AUDIO BOOKS INPUTS -->
+        <div class="form__audio-book">
+          <fieldset>
+            <legend>Audio Books Details</legend>
+            <div class="form__group">
+              <label for="narrator">Narrator</label>
+              <input
+                type="text"
+                name="narrator"
+                id="narrator"
+                placeholder="Enter Narrator's Name. E.g John Smith"
+                maxlength="50"
+                class="form__narrator-input"
+              />
+            </div>
+            <div class="form__group">
+              <label for="duration">Book Duration</label>
+              <input
+                type="time"
+                name="duration"
+                id="duration"
+                class="form__duration-input"
+                step="60"
+              />
+            </div>
+          </fieldset>
+        </div>
+        <button type="submit" class="form__add-button">Add Book</button>
+        <button type="button" class="form__cancel-button">
+          Cancel Registration
+        </button>
+      </form>
+    </div>
+    <!-- STRUCTURE FOR DELETE MODAL -->
+    <div class="delete-modal">
+      <div class="delete-modal__container">
+        <p class="delete-modal__text">DELETE MESSAGE</p>
+        <div class="delete-modal__buttons">
+          <button class="delete-modal__confirm-button">Confirm</button>
+          <button class="delete-modal__cancel-button">Candcel</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./src/js/app.js"></script>
   </body>
 </html>
