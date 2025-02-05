@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/form.css" />
     <title>Vite App</title>
   </head>
   <body>
     <!-- STRUCTURE FOR THE HEADER -->
-    <header>
-      <h1>Book Management App</h1>
+    <header class="header">
+      <h1 class="header__title">Book Management App</h1>
     </header>
     <!-- MAIN STRUCTURE -->
     <main>
@@ -27,7 +31,7 @@
             </button>
           </div>
           <div class="add-books">
-            <button class="add-book__button">Add</button>
+            <button class="add-books__button">Add</button>
           </div>
         </div>
         <div class="books">
@@ -94,7 +98,7 @@
         </div>
         <!-- FORM ELEMENTS FOR PRINTED BOOKS INPUTS-->
         <div class="form__printed-book">
-          <fieldset>
+          <fieldset class="form__category">
             <legend>Printed Books Details</legend>
             <div class="form__group">
               <label for="pages">Number of Pages</label>
@@ -124,7 +128,7 @@
         </div>
         <!-- FORM ELEMENTS FOR AUDIO BOOKS INPUTS -->
         <div class="form__audio-book">
-          <fieldset>
+          <fieldset class="form__category">
             <legend>Audio Books Details</legend>
             <div class="form__group">
               <label for="narrator">Narrator</label>
@@ -161,7 +165,7 @@
         <p class="delete-modal__text">DELETE MESSAGE</p>
         <div class="delete-modal__buttons">
           <button class="delete-modal__confirm-button">Confirm</button>
-          <button class="delete-modal__cancel-button">Candcel</button>
+          <button class="delete-modal__cancel-button">Cancel</button>
         </div>
       </div>
     </div>
