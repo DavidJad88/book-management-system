@@ -32,6 +32,7 @@
 .book-item__details-container div {
   display: flex;
   align-items: center;
+  gap: var(--spacing-small);
 }
 .book-item__details-container div span {
   display: flex;
