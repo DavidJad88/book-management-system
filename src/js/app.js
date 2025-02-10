@@ -81,3 +81,13 @@ form.addEventListener("submit", (e) => {
   );
   UserInterface.renderBooks();
 });
+
+filterContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("filter-books__button--all")) {
+    UserInterface.renderBooks("all");
+  } else if (e.target.classList.contains("filter-books__button--printed")) {
+    UserInterface.renderBooks("printed-book");
+  } else if (e.target.classList.contains("filter-books__button--audio")) {
+    UserInterface.renderBooks("audiobook");
+  }
+});
