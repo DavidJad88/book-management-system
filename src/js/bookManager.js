@@ -1,5 +1,7 @@
 import PrintedBook from "./printedBooks";
 import AudioBook from "./audioBook";
+import Book from "./book";
+import UserInterface from "./userInterface";
 
 class BookManager {
   static booksCollection =
@@ -44,6 +46,14 @@ class BookManager {
 
   static storeBooks(collection) {
     localStorage.setItem("books-collection", JSON.stringify(collection));
+  }
+
+  static deleteBook(bookId) {
+    BookManager.booksCollection = BookManager.booksCollection.filter((book) => {
+      return book.id !== bookId;
+    });
+    BookManager.storeBooks(BookManager.booksCollection);
+    UserInterface.renderBooks();
   }
 }
 

@@ -1,3 +1,5 @@
+import BookManager from "./bookManager";
+
 class UserInterface {
   static toggleBookTypeFields(
     printedBookContainer,
@@ -38,6 +40,32 @@ class UserInterface {
   static closeAddModal(closeAddModalButton, formModal) {
     closeAddModalButton.addEventListener("click", () => {
       formModal.classList.remove("display-form");
+    });
+  }
+
+  static displayDeleteModal(bookId, bookTitle) {
+    const deleteModal = document.querySelector(".delete-modal");
+    const deleteModalMessage = document.querySelector(".delete-modal__text");
+    const confirmDeleteButton = document.querySelector(
+      ".delete-modal__confirm-button"
+    );
+
+    deleteModalMessage.textContent = `Are you sure you want to delete ${bookTitle}`;
+    deleteModal.classList.add("display-modal");
+
+    confirmDeleteButton.addEventListener("click", () => {
+      BookManager.deleteBook(bookId);
+      deleteModal.classList.remove("display-modal");
+    });
+  }
+
+  static closeDeleteModal() {
+    const deleteModal = document.querySelector(".delete-modal");
+    const cancelDeleteButton = document.querySelector(
+      ".delete-modal__cancel-button"
+    );
+    cancelDeleteButton.addEventListener("click", () => {
+      deleteModal.classList.remove("display-modal");
     });
   }
 
@@ -140,12 +168,18 @@ class UserInterface {
 
         deleteButton.textContent = "Delete";
         editButton.textContent = "edit";
+
         //add class names
         bookCard.classList.add("book__item");
         bookDetailsContainer.classList.add("book-item__details-container");
         bookToolsContainer.classList.add("book-item__tools-container");
         deleteButton.classList.add("book-item__delete-button");
         editButton.classList.add("book-item__edit-button");
+
+        //add event listeners to the buttons
+        deleteButton.addEventListener("click", () => {
+          UserInterface.displayDeleteModal(book.id, book.title);
+        });
       });
     }
   }

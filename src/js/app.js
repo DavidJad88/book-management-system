@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audioBookContainer
   );
   UserInterface.closeAddModal(closeAddModalButton, formModal);
+  UserInterface.closeDeleteModal();
   UserInterface.renderBooks();
 });
 
