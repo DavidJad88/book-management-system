@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audioBookContainer
   );
   UserInterface.closeAddModal(closeAddModalButton, formModal);
+  UserInterface.renderBooks();
 });
 
 bookTypeDropdown.addEventListener("change", () => {
@@ -78,4 +79,5 @@ form.addEventListener("submit", (e) => {
     narrator.value.trim(),
     duration.value
   );
+  UserInterface.renderBooks();
 });

@@ -1,0 +1,55 @@
+.books {
+  width: 100%;
+  height: 100%;
+}
+
+.books__list {
+  min-width: 400px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius-medium);
+  margin: 0 auto;
+}
+
+.book__item {
+  width: 100%;
+  display: flex;
+  border-radius: var(--border-radius-medium);
+  background-image: var(--color-background-light-gradient);
+}
+
+.book-item__details-container {
+  flex-basis: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+}
+
+.book-item__details-container div {
+  display: flex;
+  align-items: center;
+}
+.book-item__details-container div span {
+  display: flex;
+  align-items: center;
+}
+
+.book-item__tools-container {
+  flex-basis: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.book-item__delete-button,
+.book-item__edit-button {
+  min-height: 48px;
+  width: 100%;
+  flex: 1;
+}
