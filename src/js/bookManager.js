@@ -1,7 +1,7 @@
-import PrintedBook from "./printedBooks";
 import AudioBook from "./audioBook";
 import Book from "./book";
-import UserInterface from "./userInterface";
+import PrintedBook from "./printedBooks";
+import Ui from "./ui";
 
 class BookManager {
   static booksCollection =
@@ -39,7 +39,7 @@ class BookManager {
         duration
       );
     }
-    this.booksCollection.push(book);
+    BookManager.booksCollection.push(book);
     this.storeBooks(this.booksCollection);
     console.log(this.booksCollection);
   }
@@ -48,12 +48,46 @@ class BookManager {
     localStorage.setItem("books-collection", JSON.stringify(collection));
   }
 
-  static deleteBook(bookId) {
+  static deleteBook(id) {
     BookManager.booksCollection = BookManager.booksCollection.filter((book) => {
-      return book.id !== bookId;
+      return book.id !== id;
     });
     BookManager.storeBooks(BookManager.booksCollection);
-    UserInterface.renderBooks();
+    Ui.renderBooks();
+  }
+  static editBook(
+    id,
+    title,
+    author,
+    publisher,
+    date,
+    bookType,
+    pages,
+    printType,
+    narrator,
+    duration
+  ) {
+    // ----Fixed
+    const booksCollection = JSON.parse(
+      localStorage.getItem("books-collection")
+    );
+    const bookIndex = booksCollection.findIndex((book) => book.id === id);
+    // --------
+    if (bookIndex !== -1) {
+      BookManager.booksCollection[bookIndex] = {
+        id,
+        title,
+        author,
+        publisher,
+        date,
+        bookType,
+        pages,
+        printType,
+        narrator,
+        duration,
+      };
+    }
+    BookManager.storeBooks(BookManager.booksCollection);
   }
 }
 
