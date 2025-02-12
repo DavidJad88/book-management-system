@@ -74,7 +74,7 @@ class Ui {
     const title = document.querySelector(".form__title-input");
     const author = document.querySelector(".form__author-input");
     const publisher = document.querySelector(".form__publisher-input");
-    const date = document.querySelector(".form__publication-input");
+    const date = document.querySelector(".form__publication-date-input");
     const bookTypeDropdown = document.querySelector(".form__book-type");
     const printedBookContainer = document.querySelector(".form__printed-book");
     const audioBookContainer = document.querySelector(".form__audio-book");
