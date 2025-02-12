@@ -25,18 +25,30 @@ class Ui {
     openAddModalButton,
     formModal,
     printedBookContainer,
-    audioBookContainer
+    audioBookContainer,
+    formSubmitButton
   ) {
     openAddModalButton.addEventListener("click", () => {
       formModal.classList.add("display-form");
       // HIDE BOTH CONTAINERS INITIALLY
       printedBookContainer.style.display = "none";
       audioBookContainer.style.display = "none";
+      formSubmitButton.textContent = "Add";
     });
   }
-  static closeAddModal(closeAddModalButton, formModal) {
+  static closeAddModal(
+    closeAddModalButton,
+    formModal,
+    form,
+    validationMessage,
+    formSubmitButton
+  ) {
     closeAddModalButton.addEventListener("click", () => {
       formModal.classList.remove("display-form");
+      form.reset();
+      validationMessage.style.display = "none";
+      Ui.currentEditId = null;
+      formSubmitButton.textContent = "Add";
     });
   }
 

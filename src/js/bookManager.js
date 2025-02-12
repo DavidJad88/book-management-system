@@ -68,13 +68,13 @@ class BookManager {
     duration
   ) {
     // ----Fixed
-    const booksCollection = JSON.parse(
+    const latestCollection = JSON.parse(
       localStorage.getItem("books-collection")
     );
-    const bookIndex = booksCollection.findIndex((book) => book.id === id);
+    const bookIndex = latestCollection.findIndex((book) => book.id === id);
     // --------
     if (bookIndex !== -1) {
-      BookManager.booksCollection[bookIndex] = {
+      latestCollection[bookIndex] = {
         id,
         title,
         author,
@@ -87,7 +87,7 @@ class BookManager {
         duration,
       };
     }
-    BookManager.storeBooks(BookManager.booksCollection);
+    BookManager.storeBooks(latestCollection);
   }
 }
 

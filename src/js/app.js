@@ -1,5 +1,6 @@
 import BookManager from "./bookManager";
 import Ui from "./ui";
+import Validation from "./validation";
 
 // SELECT DOM ELEMENTS
 const openAddModalButton = document.querySelector(".add-books__button");
@@ -17,6 +18,7 @@ const date = document.querySelector(".form__publication-date-input");
 const bookTypeDropdown = document.querySelector(".form__book-type");
 const filterContainer = document.querySelector(".filter-books");
 const formSubmitButton = document.querySelector(".form__add-button");
+const validationMessage = document.querySelector(".form__validation-message");
 
 // SELECTING ELEMENTS SPECIFIC TO PRINTED BOOKS
 const pages = document.querySelector(".form__pages-input");
@@ -42,9 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
     openAddModalButton,
     formModal,
     printedBookContainer,
-    audioBookContainer
+    audioBookContainer,
+    formSubmitButton
   );
-  Ui.closeAddModal(closeAddModalButton, formModal);
+  Ui.closeAddModal(
+    closeAddModalButton,
+    formModal,
+    form,
+    validationMessage,
+    formSubmitButton
+  );
   Ui.closeDeleteModal();
   Ui.renderBooks();
 });
@@ -61,6 +70,9 @@ bookTypeDropdown.addEventListener("change", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (!Validation.validateForm(bookTypeDropdown.value, validationMessage)) {
+    return;
+  }
   if (!Ui.currentEditId) {
     BookManager.addBook(
       title.value.trim(),
@@ -88,7 +100,7 @@ form.addEventListener("submit", (e) => {
     );
     Ui.currentEditId = null;
     formModal.classList.remove("display-form");
-    formSubmitButton.textContent = "Add";
+    // formSubmitButton.textContent = "Add";
   }
   Ui.renderBooks();
   form.reset();
@@ -101,5 +113,6 @@ filterContainer.addEventListener("click", (e) => {
     Ui.renderBooks("printed-book");
   } else if (e.target.classList.contains("filter-books__button--audio")) {
     Ui.renderBooks("audio-book");
+    console.log("hello");
   }
 });

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/form.css" />
     <link rel="stylesheet" href="./src/css/renderBooks.css" />
+    <link rel="stylesheet" href="./src/css/validation.css" />
     <title>Vite App</title>
   </head>
   <body>
@@ -96,7 +97,7 @@
           <select name="book-type" id="book-type" class="form__book-type">
             <option value="">Select Book Type</option>
             <option value="printed-book">Printed Book</option>
-            <option value="audiobook">Audio book</option>
+            <option value="audio-book">Audio book</option>
           </select>
         </div>
         <!-- FORM ELEMENTS FOR PRINTED BOOKS INPUTS-->
@@ -156,6 +157,7 @@
             </div>
           </fieldset>
         </div>
+        <p class="form__validation-message"></p>
         <button type="submit" class="form__add-button">Add Book</button>
         <button type="button" class="form__cancel-button">
           Cancel Registration
